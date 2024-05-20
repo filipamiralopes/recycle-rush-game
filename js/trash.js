@@ -25,10 +25,10 @@ class Trash {
 
   getRandomTrash() {
     const trashAssets = [
-      { src: "./assets/banana-peel.png", type: "organic" }, // banana
-      { src: "./assets/beer-bottle.png", type: "glass" }, // beerBottle
-      { src: "./assets/newspaper.png", type: "paper" }, // newspaper
-      { src: "./assets/plastic-bag.png", type: "plastic" }, // plasticBag
+      { src: "./assets/banana-peel.png", type: "organic" }, 
+      { src: "./assets/beer-bottle.png", type: "glass" }, 
+      { src: "./assets/newspaper.png", type: "paper" }, 
+      { src: "./assets/plastic-bag.png", type: "plastic" },
     ];
     let randomTrash = {};
     for (let i = 0; i < trashAssets.length; i++) {
