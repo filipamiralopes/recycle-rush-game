@@ -1,18 +1,18 @@
 class Trash {
-  constructor(gameScreen, top, left, width, height, trashImage) {
+  constructor(gameScreen, top, left) {
     this.gameScreen = gameScreen;
-    
-    this.top = top;
-    this.left = left;
-    
-    this.width = width;
-    this.height = height;
+
+    this.top = 0;
+    this.left = Math.floor(Math.random() * (700 - 20 + 1)) + 20;
+
+    this.width = 80;
+    this.height = 100;
 
     this.directionX = 0;
     this.directionY = 0;
 
     this.element = document.createElement("img");
-    this.element.src = trashImage;
+    this.element.src = this.getRandomTrash();
     this.element.style.position = "absolute";
 
     this.element.style.top = `${this.top}px`;
@@ -21,6 +21,21 @@ class Trash {
     this.element.style.width = `${this.width}px`;
 
     this.gameScreen.appendChild(this.element);
+  }
+
+  getRandomTrash() {
+    const banana = "./assets/banana-peel.png";
+    const beerBottle = "./assets/beer-bottle.png";
+    const newspaper = "./assets/newspaper.png";
+    const plasticBag = "./assets/plastic-bag.png";
+
+    const assets = [banana, beerBottle, newspaper, plasticBag];
+    let randomTrash = "";
+    for (let i = 0; i < assets.length; i++) {
+      let randomIndex = Math.floor(Math.random() * assets.length);
+      randomTrash = assets[randomIndex];
+    }
+    return randomTrash;
   }
 
   updatePosition() {
