@@ -3,23 +3,20 @@ class Game {
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
     this.gameEndScreen = document.getElementById("game-end");
-    this.trashArr = [
-      new Trash(
-        this.gameScreen,
-        // 0,
-        // Math.floor(Math.random() * (700 - 20 + 1)) + 20
-      ),
-    ];
+    this.trashArr = [new Trash(this.gameScreen)];
     this.height = 600;
     this.width = 800;
-    this.bin = new Bin(
-      this.gameScreen,
-      this.height - 90, // top
-      50, // left
-      110, // width
-      120, // height
-      "./assets/blue-bin.png"
-    );
+    this.bins = [
+      new Bin(
+        this.gameScreen,
+        this.height - 90, // top
+        50, // left
+        110, // width
+        120, // height
+        "paper",
+        "./assets/blue-bin.png"
+      ),
+    ];
     this.score = 0;
     this.lives = 3;
     this.isGameOver = false;
@@ -53,7 +50,7 @@ class Game {
         trash.element.remove();
         this.lives -= 1;
         if (this.lives === 0) {
-            this.isGameOver = true;
+          this.isGameOver = true;
         }
         const livesElement = document.getElementById("lives"); // always update the DOM with the new score
         livesElement.innerText = this.lives;
@@ -61,7 +58,7 @@ class Game {
       }
 
       // if trash toches the bin
-      const wasCollected = trash.wasCollectedBy(this.bin);
+      const wasCollected = trash.wasCollectedBy(this.bins[0]);
       if (wasCollected) {
         this.trashArr.splice(i, 1);
         trash.element.remove();
@@ -70,7 +67,6 @@ class Game {
         this.trashArr.push(new Trash(this.gameScreen));
         scoreElement.innerText = this.score;
       }
-
 
       //   // Avoid trash to go off screen borders
       //   if (this.trash.top === this.height) {

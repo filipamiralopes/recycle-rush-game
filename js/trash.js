@@ -1,18 +1,18 @@
 class Trash {
   constructor(gameScreen, top, left) {
-    this.gameScreen = gameScreen;
+    const randomTrash = this.getRandomTrash()
 
+    this.gameScreen = gameScreen;
     this.top = 0;
     this.left = Math.floor(Math.random() * (700 - 20 + 1)) + 20;
-
     this.width = 80;
     this.height = 100;
-
     this.directionX = 0;
     this.directionY = 0;
+    this.type = randomTrash.type;
 
     this.element = document.createElement("img");
-    this.element.src = this.getRandomTrash();
+    this.element.src = randomTrash.src;
     this.element.style.position = "absolute";
 
     this.element.style.top = `${this.top}px`;
@@ -24,16 +24,16 @@ class Trash {
   }
 
   getRandomTrash() {
-    const banana = "./assets/banana-peel.png";
-    const beerBottle = "./assets/beer-bottle.png";
-    const newspaper = "./assets/newspaper.png";
-    const plasticBag = "./assets/plastic-bag.png";
-
-    const assets = [banana, beerBottle, newspaper, plasticBag];
-    let randomTrash = "";
-    for (let i = 0; i < assets.length; i++) {
-      let randomIndex = Math.floor(Math.random() * assets.length);
-      randomTrash = assets[randomIndex];
+    const trashAssets = [
+      { src: "./assets/banana-peel.png", type: "organic" }, // banana
+      { src: "./assets/beer-bottle.png", type: "glass" }, // beerBottle
+      { src: "./assets/newspaper.png", type: "paper" }, // newspaper
+      { src: "./assets/plastic-bag.png", type: "plastic" }, // plasticBag
+    ];
+    let randomTrash = {};
+    for (let i = 0; i < trashAssets.length; i++) {
+      let randomIndex = Math.floor(Math.random() * trashAssets.length);
+      randomTrash = trashAssets[randomIndex];
     }
     return randomTrash;
   }
@@ -45,7 +45,14 @@ class Trash {
 
   move() {
     this.left += this.directionX;
-    this.top += 2 + this.directionY;
+    // this.top += 2 + this.directionY;
+    this.top += this.directionY;
+    if (this.left <= 0) {
+        this.left = 0;
+      }
+      if (this.left >= 800 - this.width) {
+        this.left = 800 - this.width;
+      }
     this.updatePosition();
   }
 
