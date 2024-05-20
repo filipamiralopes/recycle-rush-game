@@ -10,15 +10,17 @@ window.onload = function () {
     window.location.reload();
   });
   document.addEventListener("keydown", (event) => {
-    // event from the browser
-    // Note: do a switch case
-    if (event.code === "ArrowRight") {
-      // then we move our trash to the right
-      ourGame.trashArr[0].directionX = 6;
-    } else if (event.code === "ArrowLeft") {
-      ourGame.trashArr[0].directionX = -6;
-    } else if (event.code === "ArrowDown") {
-      ourGame.trashArr[0].directionY = 6;
+    key = event.key;
+    switch (key) {
+      case "ArrowRight":
+        ourGame.trashArr[0].directionX = 6;
+        break;
+      case "ArrowLeft":
+        ourGame.trashArr[0].directionX = -6;
+        break;
+      case "ArrowDown":
+        ourGame.trashArr[0].directionY = 6;
+        break;
     }
   });
   document.addEventListener("keyup", () => {

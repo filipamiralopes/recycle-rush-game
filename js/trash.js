@@ -45,7 +45,7 @@ class Trash {
 
   move() {
     this.left += this.directionX;
-    this.top += 3;
+    this.top += 2 + this.directionY;
     this.updatePosition();
   }
 
