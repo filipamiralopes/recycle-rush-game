@@ -7,6 +7,11 @@ body {
     display: none;
     padding: 20px 0px;
   }
+
+  .game-intro p {
+    font-size: 18px;
+    font-family: "Verdana";
+  }
   
   #game-container {
     display: flex;
@@ -39,10 +44,9 @@ body {
   #game-end {
     display: none;
   }
-  
-  .game-intro p {
-    font-size: 18px;
-    font-family: "Verdana";
+
+  #game-end img {
+    width: 20vw;
   }
   
   .recycle-symbol {

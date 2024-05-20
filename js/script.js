@@ -17,9 +17,6 @@ window.onload = function () {
       ourGame.trashArr[0].directionX = 6;
     } else if (event.code === "ArrowLeft") {
       ourGame.trashArr[0].directionX = -6;
-    } else if (event.code === "ArrowUp") {
-      // REMOVE THIS
-      ourGame.trashArr[0].directionY = -6;
     } else if (event.code === "ArrowDown") {
       ourGame.trashArr[0].directionY = 6;
     }

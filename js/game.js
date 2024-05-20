@@ -52,6 +52,9 @@ class Game {
         this.trashArr.splice(i, 1);
         trash.element.remove();
         this.lives -= 1;
+        if (this.lives === 0) {
+            this.isGameOver = true;
+        }
         const livesElement = document.getElementById("lives"); // always update the DOM with the new score
         livesElement.innerText = this.lives;
         this.trashArr.push(new Trash(this.gameScreen));
@@ -67,6 +70,7 @@ class Game {
         this.trashArr.push(new Trash(this.gameScreen));
         scoreElement.innerText = this.score;
       }
+
 
       //   // Avoid trash to go off screen borders
       //   if (this.trash.top === this.height) {
