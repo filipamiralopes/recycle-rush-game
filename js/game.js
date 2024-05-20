@@ -7,15 +7,10 @@ class Game {
     this.height = 600;
     this.width = 800;
     this.bins = [
-      new Bin(
-        this.gameScreen,
-        this.height - 90, // top
-        50, // left
-        110, // width
-        120, // height
-        "paper",
-        "./assets/blue-bin.png"
-      ),
+        new Bin(this.gameScreen,this.height - 90, 30, 110, 120, "paper","./assets/blue-bin.png"),
+        new Bin(this.gameScreen, this.height - 90, 235, 110, 120, "plastic", "./assets/yellow-bin.png"),
+        new Bin(this.gameScreen,  this.height - 90, 470, 110, 120, "glass", "./assets/green-bin.png"),
+        new Bin( this.gameScreen, this.height - 90, 700, 70, 120, "organic", "./assets/brown-bin.png"),
     ];
     this.score = 0;
     this.lives = 3;
@@ -67,13 +62,6 @@ class Game {
         this.trashArr.push(new Trash(this.gameScreen));
         scoreElement.innerText = this.score;
       }
-
-      //   // Avoid trash to go off screen borders
-      //   if (this.trash.top === this.height) {
-      //     // ???????
-      //     // this.trash.directionX = 0;
-      //     // this.trash.directionY = 0;
-      //   }
     });
   }
 
