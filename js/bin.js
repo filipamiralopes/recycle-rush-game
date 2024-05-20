@@ -1,12 +1,9 @@
 class Bin {
   constructor(gameScreen, top, left, width, height, type, binImage) {
     this.gameScreen = gameScreen;
-    // this.positionArr = [85, 300];
-    // this.randomIndex = Math.floor(Math.random() * this.positionArr.length);
 
     this.top = top;
     this.left = left;
-    
     this.width = width;
     this.height = height;
 

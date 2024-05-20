@@ -7,7 +7,7 @@ class Game {
     this.height = 600;
     this.width = 800;
     this.bins = [
-        new Bin(this.gameScreen,this.height - 90, 30, 110, 120, "paper","./assets/blue-bin.png"),
+        new Bin(this.gameScreen, this.height - 90, 30, 110, 120, "paper","./assets/blue-bin.png"),
         new Bin(this.gameScreen, this.height - 90, 235, 110, 120, "plastic", "./assets/yellow-bin.png"),
         new Bin(this.gameScreen,  this.height - 90, 470, 110, 120, "glass", "./assets/green-bin.png"),
         new Bin( this.gameScreen, this.height - 90, 700, 70, 120, "organic", "./assets/brown-bin.png"),
