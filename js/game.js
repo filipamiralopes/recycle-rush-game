@@ -5,12 +5,12 @@ class Game {
     this.gameEndScreen = document.getElementById("game-end");
     this.trashArr = [new Trash(this.gameScreen)];
     this.height = 600;
-    this.width = 800;
+    this.width = 900;
     this.bins = [
-        new Bin(this.gameScreen, this.height - 90, 30, 110, 120, "paper","./assets/blue-bin.png"),
-        new Bin(this.gameScreen, this.height - 90, 235, 110, 120, "plastic", "./assets/yellow-bin.png"),
-        new Bin(this.gameScreen,  this.height - 90, 470, 110, 120, "glass", "./assets/green-bin.png"),
-        new Bin( this.gameScreen, this.height - 90, 700, 70, 120, "organic", "./assets/brown-bin.png"),
+      new blueBin(this.gameScreen, 60),
+      new yellowBin(this.gameScreen, 265),
+      new greenBin(this.gameScreen, 500),
+      new brownBin(this.gameScreen, 730),
     ];
     this.score = 0;
     this.lives = 3;
@@ -23,7 +23,7 @@ class Game {
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
     // this.startScreen.style.display = "none";
-    // this.gameScreen.style.display = "show";
+    this.gameScreen.style.display = "show";
     this.gameIntervalId = setInterval(() => {
       this.gameLoop();
     }, this.gameLoopFrequency);

@@ -13,8 +13,8 @@ class Trash {
 
     this.element = document.createElement("img");
     this.element.src = randomTrash.src;
+    
     this.element.style.position = "absolute";
-
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
     this.element.style.height = `${this.height}px`;
