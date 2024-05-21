@@ -50,22 +50,40 @@ class Trash {
     if (this.left <= 0) {
         this.left = 0;
       }
-      if (this.left >= 800 - this.width) {
-        this.left = 800 - this.width;
+      if (this.left >= 900 - this.width) {
+        this.left = 900 - this.width;
       }
     this.updatePosition();
   }
 
-  wasCollectedBy(bin) {
+  wasCollectedRightBy(bin) {
     const trashRect = this.element.getBoundingClientRect();
     const binRect = bin.element.getBoundingClientRect();
 
     if (
-      // all of the below needs to be true for a collection to be true (trash touches bin)
+      // all of the below needs to be true for a RIGHT collection to be true (trash touches correct bin)
       trashRect.left < binRect.right &&
       trashRect.right > binRect.left &&
       trashRect.top < binRect.bottom &&
-      trashRect.bottom > binRect.top
+      trashRect.bottom > binRect.top &&
+      this.type === bin.type
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  wasCollectedWrongBy(bin){
+    const trashRect = this.element.getBoundingClientRect();
+    const binRect = bin.element.getBoundingClientRect();
+
+    if (
+      trashRect.left < binRect.right &&
+      trashRect.right > binRect.left &&
+      trashRect.top < binRect.bottom &&
+      trashRect.bottom > binRect.top &&
+      this.type !== bin.type // trash touches the wrong bin
     ) {
       return true;
     } else {
