@@ -1,6 +1,6 @@
 class Trash {
   constructor(gameScreen, top, left) {
-    const randomTrash = this.getRandomTrash()
+    const randomTrash = this.getRandomTrash();
 
     this.gameScreen = gameScreen;
     this.top = 0;
@@ -9,11 +9,13 @@ class Trash {
     this.height = 100;
     this.directionX = 0;
     this.directionY = 0;
+
     this.type = randomTrash.type;
+    this.speed = 0; // change to 2
 
     this.element = document.createElement("img");
     this.element.src = randomTrash.src;
-    
+
     this.element.style.position = "absolute";
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
@@ -25,9 +27,9 @@ class Trash {
 
   getRandomTrash() {
     const trashAssets = [
-      { src: "./assets/banana-peel.png", type: "organic" }, 
-      { src: "./assets/beer-bottle.png", type: "glass" }, 
-      { src: "./assets/newspaper.png", type: "paper" }, 
+      { src: "./assets/banana-peel.png", type: "organic" },
+      { src: "./assets/beer-bottle.png", type: "glass" },
+      { src: "./assets/newspaper.png", type: "paper" },
       { src: "./assets/plastic-bag.png", type: "plastic" },
     ];
     let randomTrash = {};
@@ -45,14 +47,14 @@ class Trash {
 
   move() {
     this.left += this.directionX;
-    // this.top += 2 + this.directionY;
-    this.top += this.directionY;
+    this.top += this.speed + this.directionY;
+    // this.top += this.directionY;
     if (this.left <= 0) {
-        this.left = 0;
-      }
-      if (this.left >= 900 - this.width) {
-        this.left = 900 - this.width;
-      }
+      this.left = 0;
+    }
+    if (this.left >= 900 - this.width) {
+      this.left = 900 - this.width;
+    }
     this.updatePosition();
   }
 
@@ -68,13 +70,14 @@ class Trash {
       trashRect.bottom > binRect.top &&
       this.type === bin.type
     ) {
+      this.element.classList.add("magictime", "vanishOut");
       return true;
     } else {
       return false;
     }
   }
 
-  wasCollectedWrongBy(bin){
+  wasCollectedWrongBy(bin) {
     const trashRect = this.element.getBoundingClientRect();
     const binRect = bin.element.getBoundingClientRect();
 

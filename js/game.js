@@ -17,6 +17,7 @@ class Game {
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
+    this.speed = 7;
   }
 
   start() {
@@ -68,7 +69,7 @@ class Game {
         foodWasCollected
       ) {
         this.trashArr.splice(i, 1);
-        trash.element.remove();
+        //trash.element.remove();
         this.score += 1;
         if (this.score % 2 === 0) {
           this.shuffleBins();

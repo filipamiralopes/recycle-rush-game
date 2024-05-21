@@ -13,13 +13,13 @@ window.onload = function () {
     key = event.key;
     switch (key) {
       case "ArrowRight":
-        ourGame.trashArr[0].directionX = 6;
+        ourGame.trashArr[0].directionX = ourGame.speed;
         break;
       case "ArrowLeft":
-        ourGame.trashArr[0].directionX = -6;
+        ourGame.trashArr[0].directionX = -ourGame.speed;
         break;
       case "ArrowDown":
-        ourGame.trashArr[0].directionY = 6;
+        ourGame.trashArr[0].directionY = ourGame.speed;
         break;
     }
   });
