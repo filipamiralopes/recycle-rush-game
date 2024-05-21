@@ -13,7 +13,7 @@ class Game {
       new brownBin(this.gameScreen, 730),
     ];
     this.score = 0;
-    this.lives = 3;
+    this.lives = 5;
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
@@ -46,7 +46,6 @@ class Game {
       }
 
       // if trash toches the bin
-
       const blueBin = this.bins.filter((bin) => bin.type === "paper")[0];
       const yellowBin = this.bins.filter((bin) => bin.type === "plastic")[0];
       const greenBin = this.bins.filter((bin) => bin.type === "glass")[0];

@@ -88,6 +88,7 @@ class Trash {
       trashRect.bottom > binRect.top &&
       this.type !== bin.type // trash touches the wrong bin
     ) {
+      bin.element.classList.add("magictime", "foolishIn");
       return true;
     } else {
       return false;
