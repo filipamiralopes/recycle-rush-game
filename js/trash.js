@@ -71,6 +71,11 @@ class Trash {
       this.type === bin.type
     ) {
       this.element.classList.add("magictime", "vanishOut");
+      const scoreElementh4 = document.querySelector("h4");
+      scoreElementh4.classList.add("magictime", "puffIn");
+      setTimeout(() => {
+        scoreElementh4.classList.remove("magictime", "puffIn");
+      }, 500);
       return true;
     } else {
       return false;

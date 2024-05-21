@@ -69,11 +69,11 @@ class Game {
       ) {
         this.trashArr.splice(i, 1);
         //trash.element.remove();
+        const scoreElement = document.getElementById("score");
         this.score += 1;
         if (this.score % 2 === 0) {
           this.shuffleBins();
         }
-        const scoreElement = document.getElementById("score");
         this.trashArr.push(new Trash(this.gameScreen));
         scoreElement.innerText = this.score;
       } else if (itsNotPaper || itsNotPlastic || itsNotGlass || itsNotFood) {
