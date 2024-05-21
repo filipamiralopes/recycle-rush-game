@@ -94,6 +94,11 @@ class Trash {
       this.type !== bin.type // trash touches the wrong bin
     ) {
       bin.element.classList.add("magictime", "foolishIn");
+      // const livesH4 = document.getElementById("lives-h4");
+      // livesH4.classList.add("magictime", "holeOut");
+      // setTimeout(() => {
+      //   livesH4.classList.remove("magictime", "holeOut");
+      // }, 300);
       return true;
     } else {
       return false;
