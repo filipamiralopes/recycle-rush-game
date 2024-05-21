@@ -13,7 +13,7 @@ class Game {
       new brownBin(this.gameScreen, 730),
     ];
     this.score = 0;
-    this.lives = 3;
+    this.lives = 10;
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
@@ -50,6 +50,7 @@ class Game {
         const livesElement = document.getElementById("lives"); // always update the DOM with the new score
         livesElement.innerText = this.lives;
         this.trashArr.push(new Trash(this.gameScreen));
+        this.shuffleBins()
       }
 
       // if trash toches the bin
@@ -65,8 +66,33 @@ class Game {
     });
   }
 
+  shuffleBins(){
+    this.bins.forEach(bin => bin.element.remove());
+    const newPositions = this._shuffleArr([60, 265, 500, 730])
+    this.bins = [
+        new blueBin(this.gameScreen, newPositions[0]),
+        new yellowBin(this.gameScreen, newPositions[1]),
+        new greenBin(this.gameScreen, newPositions[2]),
+        new brownBin(this.gameScreen, newPositions[3]),
+      ];
+  }
+
   gameOver() {
     this.gameScreen.style.display = "none";
     this.gameEndScreen.style.display = "block";
+  }
+
+  _shuffleArr(arr) { 
+    const randomizedArr = [];
+    let counter = arr.length;
+    while (counter > 0) {
+      let randomElement =
+        arr[Math.floor(Math.random() * arr.length)];
+      if (!randomizedArr.includes(randomElement)) {
+        randomizedArr.push(randomElement);
+        counter -= 1;
+      }
+    }
+    return randomizedArr;
   }
 }
