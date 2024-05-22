@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Dhurjati&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Dhurjati&display=swap");
 
 body {
   padding: 0;
@@ -19,7 +19,7 @@ body {
   justify-content: center;
   font-family: "Bungee Spice";
   font-size: 40px;
-  text-shadow: 1px 2px #101011;
+  text-shadow: 4px 2px #101011;
 }
 .header img {
   width: 14vw;
@@ -32,18 +32,9 @@ h2 {
   margin-top: 1px;
 }
 
-/* .arrow-instructions{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: aquamarine;
-} */
-
 .arrows-img {
   width: 210px;
 }
-
 
 #game-container {
   display: none;
@@ -62,7 +53,7 @@ h2 {
   font-weight: 900;
   line-height: 0.5;
   font-family: "Bungee Spice";
-  font-size: 32px;  
+  font-size: 32px;
   text-shadow: 1px 2px #101011;
 }
 
@@ -104,10 +95,24 @@ body button {
   cursor: pointer;
 }
 
-body button:hover {background-color: rgb(208, 208, 206)}
-body button:active {
-  /* background-color: #229C88; */
+#start-button {
+  animation: blink 1s linear infinite;
+}
+
+body button:hover {
   background-color: rgb(85, 39, 85);
-  box-shadow: 0 5px #666;
+}
+
+body button:active {
+  background-color: rgb(85, 39, 85);
+  box-shadow: 0 5px #4e4c4c;
   transform: translateY(4px);
+}
+
+@keyframes blink {
+
+    0% { opacity: 1; }
+   49% { opacity: 1; }
+   50% { opacity: 0; }
+  100% { opacity: 0; }
 }
