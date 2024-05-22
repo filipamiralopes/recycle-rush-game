@@ -8,13 +8,13 @@ class Game {
     this.height = 600;
     this.width = 900;
     this.bins = [
-      new blueBin(this.gameScreen, 60),
-      new yellowBin(this.gameScreen, 265),
-      new greenBin(this.gameScreen, 500),
-      new brownBin(this.gameScreen, 730),
+      new blueBin(this.gameScreen, 10),
+      new yellowBin(this.gameScreen, 255),
+      new greenBin(this.gameScreen, 525),
+      new brownBin(this.gameScreen, 790),
     ];
     this.score = 0;
-    this.lives = 1;
+    this.lives = 5;
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
@@ -35,7 +35,6 @@ class Game {
   gameLoop() {
     this.update();
     if (this.isGameOver) {
-
       clearInterval(this.gameIntervalId);
       this.gameOver();
     }
@@ -46,6 +45,15 @@ class Game {
 
       // if trash toches the floor
       if (trash.top > this.height - trash.height / 2) {
+        // add poop on the floor
+        const poopElement = document.createElement("img");
+        poopElement.src = "./assets/poop.png";
+        poopElement.style.position = "absolute";
+        poopElement.style.top = `${this.height - 30}px`;
+        poopElement.style.left = trash.element.style.left;
+        poopElement.style.height = "5vw";
+        poopElement.style.width = "5vw";
+        this.gameScreen.appendChild(poopElement);
         this._youLoose(trash, i);
       }
 
@@ -72,7 +80,7 @@ class Game {
         foodWasCollected
       ) {
         this.trashArr.splice(i, 1);
-        //trash.element.remove();
+        //trash.element.remove(); // removed by CSS
         const scoreElement = document.getElementById("score");
         this.score += 1;
         if (this.score % 2 === 0) {
@@ -100,23 +108,36 @@ class Game {
   gameOver() {
     this.gameContainer.style.display = "none";
     this.gameEndScreen.style.display = "block";
-    
+
     const didYouKnows = [
-      {src: "./assets/ocean-pollution.jpeg", text: `the largest dumping site of plastics is not a landfill,\n it is the Pacific ocean?`},
-      {src: "./assets/plastic-waste.jpeg", text: `enough plastic bottles are discarded over a year\n to go around the planet 4 times?`},
-      {src: "./assets/pizza-box.jpeg", text: `dirty paper, like your greazy pizza box bottom,\n can't be recycled?`},
-      {src: "./assets/blue-whale-tail.jpg", text: `more than 52 million tons of paper were recycled in 2018?\n - same weight as almost 350,000 blue whales.`},
-      {src: "./assets/recycle-glass.jpeg", text: `recycling glass is great because it can be recycled endlessly\n with no loss in quality or purity.`},
-    ]
+      {
+        src: "./assets/ocean-pollution.jpeg",
+        text: `the largest dumping site of plastics is not a landfill,\n it is the Pacific ocean?`,
+      },
+      {
+        src: "./assets/plastic-waste.jpeg",
+        text: `enough plastic bottles are discarded over a year\n to go around the planet 4 times?`,
+      },
+      {
+        src: "./assets/pizza-box.jpeg",
+        text: `dirty paper, like your greazy pizza box bottom,\n can't be recycled?`,
+      },
+      {
+        src: "./assets/blue-whale-tail.jpg",
+        text: `more than 52 million tons of paper were recycled in 2018?\n - same weight as almost 350,000 blue whales.`,
+      },
+      {
+        src: "./assets/recycle-glass.jpeg",
+        text: `recycling glass is great because it can be recycled endlessly\n with no loss in quality or purity.`,
+      },
+    ];
     const didYouKnowsShuffled = this._shuffleArr(didYouKnows);
     const didYouNKnowElement = document.getElementById("did-you-know");
-    console.log(didYouNKnowElement)
+    console.log(didYouNKnowElement);
     const factImageElement = document.getElementById("fact-img");
-    console.log(factImageElement)
+    console.log(factImageElement);
     didYouNKnowElement.innerText = didYouKnowsShuffled[0].text;
-    factImageElement.src = didYouKnowsShuffled[0].src
-
-    
+    factImageElement.src = didYouKnowsShuffled[0].src;
   }
 
   _youLoose(trash, i) {

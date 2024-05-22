@@ -22,7 +22,9 @@ body {
   text-shadow: 4px 2px #101011;
 }
 .header img {
-  width: 14vw;
+  width: 12vw;
+  height: 12vw;
+  margin-top: 22px;
 }
 h2 {
   font-family: "Dhurjati";
