@@ -14,7 +14,7 @@ class Game {
       new brownBin(this.gameScreen, 730),
     ];
     this.score = 0;
-    this.lives = 5;
+    this.lives = 1;
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
@@ -98,8 +98,25 @@ class Game {
   }
 
   gameOver() {
-    this.gameScreen.style.display = "none";
-    this.gameEndScreen.style.display = "flex";
+    this.gameContainer.style.display = "none";
+    this.gameEndScreen.style.display = "block";
+    
+    const didYouKnows = [
+      {src: "./assets/ocean-pollution.jpeg", text: `the largest dumping site of plastics is not a landfill,\n it is the Pacific ocean?`},
+      {src: "./assets/plastic-waste.jpeg", text: `enough plastic bottles are discarded over a year\n to go around the planet 4 times?`},
+      {src: "./assets/pizza-box.jpeg", text: `dirty paper, like your greazy pizza box bottom,\n can't be recycled?`},
+      {src: "./assets/blue-whale-tail.jpg", text: `more than 52 million tons of paper were recycled in 2018?\n - same weight as almost 350,000 blue whales.`},
+      {src: "./assets/recycle-glass.jpeg", text: `recycling glass is great because it can be recycled endlessly\n with no loss in quality or purity.`},
+    ]
+    const didYouKnowsShuffled = this._shuffleArr(didYouKnows);
+    const didYouNKnowElement = document.getElementById("did-you-know");
+    console.log(didYouNKnowElement)
+    const factImageElement = document.getElementById("fact-img");
+    console.log(factImageElement)
+    didYouNKnowElement.innerText = didYouKnowsShuffled[0].text;
+    factImageElement.src = didYouKnowsShuffled[0].src
+
+    
   }
 
   _youLoose(trash, i) {
