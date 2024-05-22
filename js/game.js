@@ -35,6 +35,7 @@ class Game {
   gameLoop() {
     this.update();
     if (this.isGameOver) {
+
       clearInterval(this.gameIntervalId);
       this.gameOver();
     }
@@ -98,7 +99,7 @@ class Game {
 
   gameOver() {
     this.gameScreen.style.display = "none";
-    this.gameEndScreen.style.display = "block";
+    this.gameEndScreen.style.display = "flex";
   }
 
   _youLoose(trash, i) {

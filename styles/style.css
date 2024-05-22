@@ -5,12 +5,12 @@ body {
   text-align: center;
   font-family: "Dhurjati";
   font-size: 18px;
+  background-color: antiquewhite;
 }
 
 #game-intro {
-  display: block;
+  display: none; /*CHANGE BACK TO block*/
   padding: 20px 0px;
-  background-color: antiquewhite;
 }
 
 .header {
@@ -28,8 +28,9 @@ h2 {
   font-family: "Dhurjati";
   color: #101011;
   text-shadow: 1px 2px #f7f7fa;
-  font-size: 28px;
+  font-size: 25px;
   margin-top: 1px;
+  line-height: 32px;;
 }
 
 .arrows-img {
@@ -42,7 +43,6 @@ h2 {
   padding: 30px 0px;
   justify-content: space-around;
   text-align: left;
-  background-color: antiquewhite;
 }
 
 #stats {
@@ -58,7 +58,7 @@ h2 {
 }
 
 #game-screen {
-  display: flex;
+  display: none; /*CHANGE BACK TO flex*/
   padding: 20px 0px;
   overflow: hidden;
   position: relative;
@@ -73,11 +73,25 @@ h2 {
 }
 
 #game-end {
-  display: none;
+  display: block; /*CHANGE BACK TO none*/
 }
 
+#game-end h1 {
+  font-family: "Dhurjati";
+  color: #22a08b;
+  text-shadow: 2.5px 2px #101011;
+  font-size: 55px;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
 #game-end img {
-  width: 20vw;
+  width: 30vw;
+  border: 2px solid #101011;
+  border-radius: 10px;
+  box-shadow: 5px 5px #271715;
+}
+#restart-button{
+  margin-top: 45px;
 }
 
 body button {
