@@ -1,24 +1,49 @@
-/* @font-face {
-  font-family: "Crotah";
-  src: url(https://www.fontspace.com/crotah-font-f86873);
-} */
-
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Honk&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Dhurjati&display=swap');
 
 body {
   padding: 0;
   text-align: center;
+  font-family: "Dhurjati";
+  font-size: 18px;
 }
 
 #game-intro {
   display: block;
   padding: 20px 0px;
+  background-color: antiquewhite;
 }
 
-.game-intro p {
-  font-size: 18px;
-  font-family: "Verdana";
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Bungee Spice";
+  font-size: 40px;
+  text-shadow: 1px 2px #101011;
 }
+.header img {
+  width: 14vw;
+}
+h2 {
+  font-family: "Dhurjati";
+  color: #101011;
+  text-shadow: 1px 2px #f7f7fa;
+  font-size: 28px;
+  margin-top: 1px;
+}
+
+/* .arrow-instructions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aquamarine;
+} */
+
+.arrows-img {
+  width: 210px;
+}
+
 
 #game-container {
   display: none;
@@ -52,7 +77,7 @@ body {
   align-items: center;
   width: 90vw;
   border: 2px solid #101011;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 5px 5px #271715;
 }
 
@@ -64,21 +89,25 @@ body {
   width: 20vw;
 }
 
-.recycle-symbol {
-  width: 250px;
-}
-
-.arrows-img {
-  width: 300px;
-}
-
 body button {
+  font-family: "Bungee Spice";
+  text-shadow: 1px 2px #101011;
   font-size: 30px;
-  background-color: #870007;
-  color: #fff;
+  background-color: #fffbfb;
   padding: 20px 40px;
-  border: 0;
+  border: 1.2px dashed #271715;
   box-shadow: 0;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 5px 5px #271715;
+  cursor: pointer;
+}
+
+body button:hover {background-color: rgb(208, 208, 206)}
+body button:active {
+  /* background-color: #229C88; */
+  background-color: rgb(85, 39, 85);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
