@@ -3,9 +3,9 @@ window.onload = function () {
   const restartButton = document.getElementById("restart-button");
   const ourGame = new Game();
 
-  // startButton.addEventListener("click", function () {
-  startGame();
-  // });
+  startButton.addEventListener("click", function () {
+    startGame();
+  });
   restartButton.addEventListener("click", () => {
     window.location.reload();
   });
@@ -29,7 +29,6 @@ window.onload = function () {
   });
 
   function startGame() {
-    // console.log("start game");
     ourGame.start();
   }
 };

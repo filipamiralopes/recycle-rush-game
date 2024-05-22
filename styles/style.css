@@ -11,7 +11,7 @@ body {
 }
 
 #game-intro {
-  display: none;
+  display: block;
   padding: 20px 0px;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 #game-container {
-  display: flex;
+  display: none;
   width: 100vw;
   padding: 30px 0px;
   justify-content: space-around;
