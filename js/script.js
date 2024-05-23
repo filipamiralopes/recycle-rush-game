@@ -2,8 +2,9 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const muteMusicButton = document.getElementById("mute-music");
-  const clickSound = new Audio ("./assets/audio/wet-click.wav")
+  const clickSound = new Audio ("./assets/audio/wet-click.mp3")
   clickSound.volume = 0.7;
+  clickSound.load()
   const ourGame = new Game();
 
   startButton.addEventListener("click", function () {
