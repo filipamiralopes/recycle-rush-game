@@ -51,8 +51,8 @@ class Game {
         poopElement.style.position = "absolute";
         poopElement.style.top = `${this.height - 30}px`;
         poopElement.style.left = trash.element.style.left;
-        poopElement.style.height = "5vw";
-        poopElement.style.width = "5vw";
+        poopElement.style.height = "4vw";
+        poopElement.style.width = "4vw";
         this.gameScreen.appendChild(poopElement);
         this._youLoose(trash, i);
       }
@@ -128,7 +128,7 @@ class Game {
       },
       {
         src: "./assets/recycle-glass.jpeg",
-        text: `recycling glass is great because it can be recycled endlessly\n with no loss in quality or purity.`,
+        text: `recycling glass is great because it can be recycled endlessly\n with no loss in quality or purity?`,
       },
     ];
     const didYouKnowsShuffled = this._shuffleArr(didYouKnows);

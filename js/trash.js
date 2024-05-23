@@ -5,8 +5,8 @@ class Trash {
     this.gameScreen = gameScreen;
     this.top = 0;
     this.left = Math.floor(Math.random() * (700 - 20 + 1)) + 20;
-    this.width = 80;
-    this.height = 100;
+    this.width = randomTrash.width;
+    this.height = randomTrash.height;
     this.directionX = 0;
     this.directionY = 0;
 
@@ -27,10 +27,15 @@ class Trash {
 
   getRandomTrash() {
     const trashAssets = [
-      { src: "./assets/banana-peel.png", type: "organic" },
-      { src: "./assets/beer-bottle.png", type: "glass" },
-      { src: "./assets/newspaper.png", type: "paper" },
-      { src: "./assets/plastic-bag.png", type: "plastic" },
+      { src: "./assets/banana-peel.png", type: "organic", width: 80, height: 100 },
+      { src: "./assets/beer-bottle.png", type: "glass", width: 80, height: 100 },
+      { src: "./assets/newspaper.png", type: "paper", width: 80, height: 100 },
+      { src: "./assets/plastic-bag.png", type: "plastic", width: 80, height: 100 },
+
+      { src: "./assets/fish.png", type: "organic", width: 60, height: 110 },
+      { src: "./assets/marvel-bottle.png", type: "glass", width: 105, height: 115  },
+      { src: "./assets/amazon-box.png", type: "paper", width: 120, height: 65 },
+      { src: "./assets/beer-can.png", type: "plastic", width: 100, height: 100 },
     ];
     let randomTrash = {};
     for (let i = 0; i < trashAssets.length; i++) {
