@@ -55,6 +55,13 @@ h2 {
   text-shadow: 1px 2px #101011;
 }
 
+.mute-btn{
+  font-size: 20px;
+  white-space: nowrap;
+  width: 14vw;
+  text-align: center;
+}
+
 #game-screen {
   display: flex; /*CHANGE BACK TO flex*/
   padding: 20px 0px;

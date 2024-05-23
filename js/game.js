@@ -19,9 +19,12 @@ class Game {
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
     this.speed = 7;
+    this.ambientMusic = new Audio("./assets/audio/sims-heartbeat.mp3");
+    this.ambientMusic.volume = 0.1;
   }
 
   start() {
+    this.ambientMusic.play();
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
 
@@ -82,7 +85,7 @@ class Game {
         this.trashArr.push(new Trash(this.gameScreen));
         scoreElement.innerText = this.score;
       } else if (itsNotPaper || itsNotPlastic || itsNotGlass || itsNotFood) {
-        if (this.lives > 1){
+        if (this.lives > 1) {
           blueBin.nopeSound.play();
         }
         this._youLoose(trash, i);
@@ -102,9 +105,10 @@ class Game {
   }
 
   gameOver() {
-    const gameOverSound = new Audio ("./assets/audio/game-over.mp3")
+    this.ambientMusic.pause();
+    const gameOverSound = new Audio("./assets/audio/game-over.mp3");
     gameOverSound.volume = 0.1;
-    gameOverSound.play()
+    gameOverSound.play();
 
     this.gameContainer.style.display = "none";
     this.gameEndScreen.style.display = "block";
@@ -159,7 +163,7 @@ class Game {
     poopElement.style.height = "4vw";
     poopElement.style.width = "4vw";
     this.gameScreen.appendChild(poopElement);
-    if (this.lives > 1){
+    if (this.lives > 1) {
       trash.poopSound.play();
     }
   }

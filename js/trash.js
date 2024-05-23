@@ -36,7 +36,7 @@ class Trash {
       { src: "./assets/plastic-bag.png", type: "plastic", width: 80, height: 100 },
 
       { src: "./assets/fish.png", type: "organic", width: 60, height: 110 },
-      { src: "./assets/marvel-bottle.png", type: "glass", width: 105, height: 115  },
+      { src: "./assets/marvel-bottle.png", type: "glass", width: 105, height: 115 },
       { src: "./assets/amazon-box.png", type: "paper", width: 120, height: 65 },
       { src: "./assets/beer-can.png", type: "plastic", width: 100, height: 100 },
     ];

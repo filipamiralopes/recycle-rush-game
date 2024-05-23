@@ -1,6 +1,7 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
+  const muteMusicButton = document.getElementById("mute-music");
   const clickSound = new Audio ("./assets/audio/wet-click.wav")
   clickSound.volume = 0.7;
   const ourGame = new Game();
@@ -12,6 +13,16 @@ window.onload = function () {
   restartButton.addEventListener("click", () => {
     clickSound.play()
     window.location.reload();
+  });
+  muteMusicButton.addEventListener("click", () => {
+    clickSound.play()
+    if (ourGame.ambientMusic.paused){
+      ourGame.ambientMusic.play()
+    }
+    else{
+      ourGame.ambientMusic.pause()
+    }
+    
   });
   document.addEventListener("keydown", (event) => {
     key = event.key;
