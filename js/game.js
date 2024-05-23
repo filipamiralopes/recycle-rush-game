@@ -21,8 +21,6 @@ class Game {
     this.speed = 7;
     this.ambientMusic = new Audio("./assets/audio/sims-heartbeat.mp3");
     this.ambientMusic.volume = 0.1;
-
-    this.livesElement = document.getElementById("lives");
   }
 
   start() {
@@ -106,23 +104,6 @@ class Game {
     ];
   }
 
-  displayHearts() {
-    const livesLost = 5 - this.lives;
-    this.livesElement.innerText = "";
-    for (let i = 0; i < this.lives; i++) {
-      const heartElement = document.createElement("img");
-      heartElement.setAttribute("src", "./assets/recycle-symbol.png");
-      heartElement.setAttribute("class", "hearts");
-      this.livesElement.appendChild(heartElement);
-    }
-    for (let i = 0; i < livesLost; i++) {
-      const heartElement = document.createElement("img");
-      heartElement.setAttribute("src", "./assets/red-cross.png");
-      heartElement.setAttribute("class", "hearts");
-      this.livesElement.appendChild(heartElement);
-    }
-  }
-
   gameOver() {
     this.ambientMusic.pause();
     const gameOverSound = new Audio("./assets/audio/game-over.mp3");
@@ -168,10 +149,8 @@ class Game {
     if (this.lives === 0) {
       this.isGameOver = true;
     }
-    // const livesElement = document.getElementById("lives");
-    // livesElement.innerText = this.lives;
-    this.displayHearts() 
-
+    const livesElement = document.getElementById("lives");
+    livesElement.innerText = this.lives;
     this.trashArr.push(new Trash(this.gameScreen));
   }
 

@@ -22,9 +22,9 @@ body {
   text-shadow: 4px 2px #101011;
 }
 .header img {
-  width: 8vw;
-  height: 8vw;
-  margin: 52px 20px 0px 20px;
+  width: 12vw;
+  height: 12vw;
+  margin-top: 22px;
 }
 h2 {
   font-family: "Dhurjati";
@@ -53,13 +53,6 @@ h2 {
   font-family: "Bungee Spice";
   font-size: 32px;
   text-shadow: 1px 2px #101011;
-}
-#lives {
-  display: flex;
-}
-#lives img{
-  width: 3vw;
-  margin: 3px;
 }
 
 .mute-btn{
