@@ -4,7 +4,8 @@ class Game {
     this.gameScreen = document.getElementById("game-screen");
     this.gameContainer = document.getElementById("game-container");
     this.gameEndScreen = document.getElementById("game-end");
-    this.trashArr = [new Trash(this.gameScreen)];
+    this.trashSpeed = 2;
+    this.trashArr = [new Trash(this.gameScreen, this.trashSpeed)];
     this.height = 600;
     this.width = 900;
     this.bins = [
@@ -84,7 +85,10 @@ class Game {
         if (this.score % 2 === 0) {
           this.shuffleBins();
         }
-        this.trashArr.push(new Trash(this.gameScreen));
+        if (this.score % 3 === 0) {
+          this.trashSpeed += 1;
+        }
+        this.trashArr.push(new Trash(this.gameScreen, this.trashSpeed));
         scoreElement.innerText = this.score;
       } else if (itsNotPaper || itsNotPlastic || itsNotGlass || itsNotFood) {
         if (this.lives > 1) {
@@ -172,7 +176,7 @@ class Game {
     // livesElement.innerText = this.lives;
     this.displayHearts() 
 
-    this.trashArr.push(new Trash(this.gameScreen));
+    this.trashArr.push(new Trash(this.gameScreen, this.trashSpeed));
   }
 
   _poop(trash) {

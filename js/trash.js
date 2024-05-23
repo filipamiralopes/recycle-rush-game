@@ -1,5 +1,5 @@
 class Trash {
-  constructor(gameScreen, top, left) {
+  constructor(gameScreen, speed) {
     const randomTrash = this.getRandomTrash();
 
     this.gameScreen = gameScreen;
@@ -11,7 +11,7 @@ class Trash {
     this.directionY = 0;
 
     this.type = randomTrash.type;
-    this.speed = 0; // change to 2
+    this.speed = speed;
 
     this.element = document.createElement("img");
     this.element.src = randomTrash.src;
@@ -34,7 +34,6 @@ class Trash {
       { src: "./assets/beer-bottle.png", type: "glass", width: 80, height: 100 },
       { src: "./assets/newspaper.png", type: "paper", width: 80, height: 100 },
       { src: "./assets/plastic-bag.png", type: "plastic", width: 80, height: 100 },
-
       { src: "./assets/fish.png", type: "organic", width: 60, height: 110 },
       { src: "./assets/marvel-bottle.png", type: "glass", width: 105, height: 115 },
       { src: "./assets/amazon-box.png", type: "paper", width: 120, height: 65 },
