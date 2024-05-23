@@ -1,12 +1,16 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
+  const clickSound = new Audio ("./assets/audio/wet-click.wav")
+  clickSound.volume = 0.7;
   const ourGame = new Game();
 
   startButton.addEventListener("click", function () {
+    clickSound.play()
     startGame();
   });
   restartButton.addEventListener("click", () => {
+    clickSound.play()
     window.location.reload();
   });
   document.addEventListener("keydown", (event) => {

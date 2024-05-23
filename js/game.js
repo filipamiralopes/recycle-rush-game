@@ -46,14 +46,7 @@ class Game {
       // if trash toches the floor
       if (trash.top > this.height - trash.height / 2) {
         // add poop on the floor
-        const poopElement = document.createElement("img");
-        poopElement.src = "./assets/poop.png";
-        poopElement.style.position = "absolute";
-        poopElement.style.top = `${this.height - 30}px`;
-        poopElement.style.left = trash.element.style.left;
-        poopElement.style.height = "4vw";
-        poopElement.style.width = "4vw";
-        this.gameScreen.appendChild(poopElement);
+        this._poop(trash);
         this._youLoose(trash, i);
       }
 
@@ -89,6 +82,9 @@ class Game {
         this.trashArr.push(new Trash(this.gameScreen));
         scoreElement.innerText = this.score;
       } else if (itsNotPaper || itsNotPlastic || itsNotGlass || itsNotFood) {
+        if (this.lives > 1){
+          blueBin.nopeSound.play();
+        }
         this._youLoose(trash, i);
       }
     });
@@ -96,7 +92,7 @@ class Game {
 
   shuffleBins() {
     this.bins.forEach((bin) => bin.element.remove());
-    const newPositions = this._shuffleArr([60, 265, 500, 730]);
+    const newPositions = this._shuffleArr([10, 255, 525, 790]);
     this.bins = [
       new blueBin(this.gameScreen, newPositions[0]),
       new yellowBin(this.gameScreen, newPositions[1]),
@@ -106,6 +102,10 @@ class Game {
   }
 
   gameOver() {
+    const gameOverSound = new Audio ("./assets/audio/game-over.mp3")
+    gameOverSound.volume = 0.1;
+    gameOverSound.play()
+
     this.gameContainer.style.display = "none";
     this.gameEndScreen.style.display = "block";
 
@@ -133,9 +133,7 @@ class Game {
     ];
     const didYouKnowsShuffled = this._shuffleArr(didYouKnows);
     const didYouNKnowElement = document.getElementById("did-you-know");
-    console.log(didYouNKnowElement);
     const factImageElement = document.getElementById("fact-img");
-    console.log(factImageElement);
     didYouNKnowElement.innerText = didYouKnowsShuffled[0].text;
     factImageElement.src = didYouKnowsShuffled[0].src;
   }
@@ -150,6 +148,20 @@ class Game {
     const livesElement = document.getElementById("lives");
     livesElement.innerText = this.lives;
     this.trashArr.push(new Trash(this.gameScreen));
+  }
+
+  _poop(trash) {
+    const poopElement = document.createElement("img");
+    poopElement.src = "./assets/poop.png";
+    poopElement.style.position = "absolute";
+    poopElement.style.top = `${this.height - 30}px`;
+    poopElement.style.left = trash.element.style.left;
+    poopElement.style.height = "4vw";
+    poopElement.style.width = "4vw";
+    this.gameScreen.appendChild(poopElement);
+    if (this.lives > 1){
+      trash.poopSound.play();
+    }
   }
 
   _shuffleArr(arr) {

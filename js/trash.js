@@ -22,6 +22,9 @@ class Trash {
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
 
+    this.poopSound = new Audio("./assets/audio/fart.wav");
+    this.poopSound.volume = 0.2;
+
     this.gameScreen.appendChild(this.element);
   }
 
@@ -75,6 +78,7 @@ class Trash {
       trashRect.bottom > binRect.top &&
       this.type === bin.type
     ) {
+      bin.yeahSound.play();
       this.element.classList.add("magictime", "vanishOut");
       const scoreElementh4 = document.querySelector("h4");
       scoreElementh4.classList.add("magictime", "puffIn");
@@ -98,12 +102,13 @@ class Trash {
       trashRect.bottom > binRect.top &&
       this.type !== bin.type // trash touches the wrong bin
     ) {
-      bin.element.classList.add("magictime", "foolishIn");
+      // bin.element.classList.add("magictime", "foolishIn");
       // const livesH4 = document.getElementById("lives-h4");
       // livesH4.classList.add("magictime", "holeOut");
       // setTimeout(() => {
       //   livesH4.classList.remove("magictime", "holeOut");
       // }, 300);
+      bin.element.classList.add("shake")
       return true;
     } else {
       return false;

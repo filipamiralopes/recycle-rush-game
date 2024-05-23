@@ -7,7 +7,6 @@ class Bin {
     this.width = 110;
     this.height = 120;
 
-
     this.element = document.createElement("img");
 
     this.element.style.position = "absolute";
@@ -15,6 +14,11 @@ class Bin {
     this.element.style.left = `${this.left}px`;
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
+
+    this.nopeSound = new Audio("./assets/audio/nope.ogg");
+    this.nopeSound.volume = 0.1;
+    this.yeahSound = new Audio("./assets/audio/yeah.wav");
+    this.yeahSound.volume = 0.1;
   }
 }
 
