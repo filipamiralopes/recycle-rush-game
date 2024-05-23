@@ -23,7 +23,7 @@ class Trash {
     this.element.style.width = `${this.width}px`;
 
     this.poopSound = new Audio("./assets/audio/fart.wav");
-    this.poopSound.volume = 0.2;
+    this.poopSound.volume = 0.1;
 
     this.gameScreen.appendChild(this.element);
   }
@@ -77,7 +77,7 @@ class Trash {
       trashRect.bottom > binRect.top &&
       this.type === bin.type
     ) {
-      bin.yeahSound.play();
+      // bin.yeahSound.play();
       this.element.classList.add("magictime", "vanishOut");
       const scoreElementh4 = document.querySelector("h4");
       scoreElementh4.classList.add("magictime", "puffIn");

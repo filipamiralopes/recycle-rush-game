@@ -82,10 +82,16 @@ class Game {
         //trash.element.remove(); // removed by CSS
         const scoreElement = document.getElementById("score");
         this.score += 1;
+        if (this.score %3 !== 0){
+          this.bins[0].yeahSound.play();
+        }
         if (this.score % 2 === 0) {
           this.shuffleBins();
         }
         if (this.score % 3 === 0) {
+          const levelUpSound = new Audio("./assets/audio/level-up.wav")
+          levelUpSound.volume = 0.2;
+          levelUpSound.play()
           this.trashSpeed += 1;
         }
         this.trashArr.push(new Trash(this.gameScreen, this.trashSpeed));
