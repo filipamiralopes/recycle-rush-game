@@ -15,7 +15,7 @@ The game is made up of three screens:
 - Game screen: play the game by sorting the falling trash into the recycling bins. You score points by assigning trash to the correct bin, and lose them otherwise. You also loose points by dropping trash on the floor.
 - Game-over screen: recycling facts are displayed randomly so you a learn as you lose :)
 
-I used JavaScript, HTML5 and CSS to build my game. Several audio and images assets to make the game more enjoyable and interactive.
+I used Vanilla JavaScript, HTML5 and CSS to build my game. Several audio and images assets to make the game more enjoyable and interactive.
 
 ## Play the game
 https://filipamiralopes.github.io/recycle-rush-game/
